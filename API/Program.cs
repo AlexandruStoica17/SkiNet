@@ -17,16 +17,19 @@ builder.Services.AddDbContext<StoreContext>(opt =>
 });
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline. //POSITION IS IMPORTANT
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();  //middleware //swagger is a way of documenting our API endpoints https://localhost:5001/swagger/index.html pt documentation of our API
     app.UseSwaggerUI();
 }
 
+app.UseStaticFiles();
 
 app.UseAuthorization(); //middleware for us to use authorisation
 
