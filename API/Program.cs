@@ -19,6 +19,8 @@ app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
 app.UseStaticFiles();
 
+app.UseCors("CorsPolicy");
+
 app.UseAuthorization(); //middleware for us to use authorisation
 
 app.MapControllers(); //middleware to map controllers => our API knows where to send the HTTP requests
