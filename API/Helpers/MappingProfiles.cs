@@ -6,7 +6,7 @@ using Core.Entities.Identity;
 using Core.Entities.OrderAggregate;
 
 namespace API.Helpers
-{
+{ 
     public class MappingProfiles : Profile
     {
         public MappingProfiles()
