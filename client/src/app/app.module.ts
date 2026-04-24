@@ -13,11 +13,14 @@ import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { BreadcrumbModule } from "xng-breadcrumb";
 import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
+import { OrderDetailedComponent } from './order-detailed/order-detailed.component';
+import { OrdersModule } from './orders/orders.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // OrderDetailedComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
     HttpClientModule,
     CoreModule,
     HomeModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    OrdersModule
 ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
